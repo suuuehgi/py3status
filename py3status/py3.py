@@ -1238,3 +1238,9 @@ class Py3:
             auth=auth,
             cookiejar=cookiejar,
         )
+
+    def update_on_udev(self, subsystem):
+        """
+        """
+        if self._py3_wrapper.udev_monitor.add_consumer(self, subsystem):
+            self._py3status_module.cache_timeout = PY3_CACHE_FOREVER
